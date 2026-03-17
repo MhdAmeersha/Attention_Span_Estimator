@@ -2,7 +2,6 @@ import streamlit as st
 import numpy as np
 import pickle
 
-#Load trained model
 model = pickle.load(open("attention_model.pkl", "rb"))
 
 st.title("Attention Span Estimator")
@@ -11,7 +10,7 @@ st.write("Enter user interaction data to predict attention span:")
 
 col1, col2 = st.columns(2)
 
-#Inputs
+
 with col1:
     session_duration = st.number_input("Session Duration (seconds)", min_value=0, value=1000)
 
@@ -27,7 +26,7 @@ with col2:
     tab_switches = st.number_input("Tab Switches", min_value=0, value=1)
 
 
-#Prediction
+
 if st.button("Predict Attention Level"):
 
     input_data = np.array([[session_duration,
